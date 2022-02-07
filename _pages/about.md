@@ -10,7 +10,11 @@ redirect_from:
 
 Hello world
 
-A data-driven personal website
+My research
+======
+Very cool
+
+In my free time...
 ======
 Very cool
 
