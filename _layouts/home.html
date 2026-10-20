@@ -3,11 +3,43 @@ layout: default
 title: Home
 ---
 
-{% for post in paginator.posts %}
-  {% include featured-post.html %}
-{% endfor %}
 
-<!-- Pagination links -->
+
+<!-- Add a section with text and an image -->
+<div class="intro-section">
+  <div class="intro-text">
+    <h1>Hi there ! I'm Pierre Chatagnon, <br>Experimental physicist at CEA Saclay </h1>
+    <p>
+      This is my personal website where I share my activities, and some useful resources. 
+      <br>Feel free to explore the pages below and learn more about my work !
+    </p>
+    <!-- Add a clickable button -->
+    <a href="/contact" class="intro-button">Contact me</a>
+    <a href="#posts-section" class="scroll-button">Explore my work</a>
+  </div>
+  <div class="intro-image">
+    <img src="/assets/img/my_photo.png" alt="Intro Image">
+  </div>
+</div>
+
+<script>
+  document.querySelector('.scroll-button').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    const target = document.querySelector('#posts-section'); // Get the target section
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to the top of the section
+  });
+</script>
+
+<!-- Posts Section -->
+<div id="posts-section" class="two-column-layout">
+  {% for post in paginator.posts %}
+    <div class="column">
+      {% include featured-post.html %}
+    </div>
+  {% endfor %}
+</div>
+
+<!-- Pagination links 
 <div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-button pagination-active next" href="{{ site.github.url }}{{ paginator.next_page_path }}">{{ site.data.settings.pagination.previous_page }}</a>
@@ -19,4 +51,4 @@ title: Home
   {% else %}
     <span class="pagination-button">{{ site.data.settings.pagination.next_page }}</span>
   {% endif %}
-</div>
+</div>-->

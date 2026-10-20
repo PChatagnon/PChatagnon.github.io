@@ -34,6 +34,29 @@
 }
 .menu-link {
   padding: 5px 10px;
+  text-decoration: none; /* Ensure no underline */
+  color: #333; /* Default link color */
+  position: relative; /* Required for the pseudo-element positioning */
+  transition: color 0.4s ease; /* Smooth transition for text color */
+}
+
+/* Add a small point below the text */
+.menu-link::before {
+  content: ''; /* Empty content for the dot */
+  position: absolute;
+  top: 100%; /* Position the dot below the text */
+  left: 50%; /* Center the dot horizontally under the text */
+  transform: translateX(-50%); /* Adjust for perfect centering */
+  width: 6px; /* Size of the dot */
+  height: 6px; /* Size of the dot */
+  background-color: transparent; /* Initially invisible */
+  border-radius: 50%; /* Make it a circle */
+  transition: background-color 0.3s ease; /* Smooth transition for the dot */
+}
+
+/* Hover effect: Show the dot */
+.menu-link:hover::before {
+  background-color: #00455e; /* Change the dot color on hover */
 }
 
 /*
@@ -91,4 +114,13 @@
   .dropdown:hover .dropbtn {
     background-color: #f1f1f1;
   }
+}
+
+/*NEED TO FIX THE DOTS*/
+.social-icon {
+  width: 17px; /* Set the desired width */
+  height: 17px; /* Set the desired height */
+  display: inline-block; /* Ensure proper alignment */
+  vertical-align: -3px;  /*Align with text if needed */
+  /*margin-right: -5px; Add spacing between icons */
 }
